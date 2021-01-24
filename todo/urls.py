@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main.views import homepage, test, second, third
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", homepage, name="home"),
     path("test/", test, name="test"),
     path("test2/", second),
-    path("test3/", third),
+    path("test3/", third)
+    + static(settings.STATIC_URL, document.root=settings.STATIC_ROOT) \
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
 ]
