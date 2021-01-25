@@ -9,7 +9,7 @@
     <h2>Это уже не тестовая страница для меня</h2> 
     <div>Релиз 2.0</div>   
     {% for todo in todo_list %}
-        {{ todo.text }}
+       <h2> {{ todo.text }} - {{ todo.created_at }} </h2>
     {% endfor %}
 </body>
 </html>
