@@ -11,13 +11,17 @@
 <body>
 
     <div class="todo_container">
-
-    {% for books in books_list %}
-       <h3 class="todo_item"> {{ books.title }} </h3> 
-       <h4 class="todo_item"> {{ books.price }} </h4>
-       <h4 class="todo_item"> {{ books.year }} </h4>
-    {% endfor %}
-
+            {% for books in books_list %}
+            <div class="todo_item">
+            <h3 class=""> Заголовок: {{ books.title }} </h3> 
+            <h4 class=""> Подзаголовок: {{ books.subtitle }} </h4>
+            <h4 class=""> Описание: {{ books.description }} </h4>
+            <h4 class=""> Цена: {{ books.price }} </h4>
+            <h4 class=""> Жанр: {{ books.genre }} </h4>
+            <h4 class=""> Год выпуска:{{ books.year }} </h4>
+            <h4 class=""> Дата создания: {{ books.date }} </h4>
+            </div>
+        {% endfor %}
     </div>
 </body>
 </html>
