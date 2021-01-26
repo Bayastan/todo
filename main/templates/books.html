@@ -5,10 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/books.css' %}">
     <link rel="stylesheet" href="{% static 'styles/index.css' %}">
     <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}">
 </head>
 <body>
+
+    <div class="save_form">
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="div_input">
+                <input type="text" class="style_input" placeholder="Заголовок" name="">
+            </div>
+
+            <div class="div_input">
+                <input type="text" class="style_input" placeholder="Подзаголовок" name="">
+            </div>
+
+            <div class="div_input">
+                <input type="text" class="style_input" placeholder="Описание" name="">
+            </div>
+
+            <div class="div_input">
+                <input type="text" class="style_input" placeholder="Цена" name="">
+            </div>
+
+            <div class="div_input">
+                <input type="text" class="style_input" placeholder="Жанр" name="">
+            </div>
+
+            <div class="div_input">
+                <input type="text" class="style_input" placeholder="Год выпуска" name="">
+            </div>
+
+            <div class="div_input">
+                <input type="text" class="style_input" placeholder="Дата создания" name="">
+            </div>
+
+            <div class="div_input">
+                <button class="style_input">Добавить книгу</button>
+            </div>
+
+            </form>
+
+    </div>
 
     <div class="todo_container">
             {% for books in books_list %}
