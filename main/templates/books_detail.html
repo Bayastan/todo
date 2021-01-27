@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    h3, h4 {
+        text-align: center;
+        font-style: italic;
+        margin: 10px 5px;
+        font-size: 24px;
+    }
+
+    #link {
+        font-size: 20px;
+        text-align: center;
+    }
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page books details</title>
+    <link rel="stylesheet" href="{% static 'styles/books.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}">
+</head>
+<body>
+    <div class="todo_container">
+
+        {% for books in books_list %}
+
+        <div class="todo_item">
+
+            <h3 class=""> Заголовок: {{ books.title }} </h3> 
+            <h4 class=""> Подзаголовок: {{ books.subtitle }} </h4>
+            <h4 class=""> Описание: {{ books.description }} </h4>
+            <h4 class=""> Цена: {{ books.price }} </h4>
+            <h4 class=""> Жанр: {{ books.genre }} </h4>
+            <h4 class=""> Год выпуска:{{ books.year }} </h4>
+            <h4 class=""> Дата создания: {{ books.date }} </h4>
+            <a href="{% url 'books' %}" id="link">Перейти к странице books</a>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</body>
+</html>

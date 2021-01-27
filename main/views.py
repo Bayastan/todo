@@ -52,7 +52,7 @@ def add_book(request):
     description=form["description"],
     genre=form["genre"],
     price=form["price"],
-    year=form["year"],
+    year=form["year"][:10],
     )
     book.save()
     return redirect(books)
@@ -73,3 +73,8 @@ def unmark_book(request, id):
     book.is_favorites = False
     book.save()
     return redirect(books)
+
+def book(request, id):
+    book_object = Books.objects.filter(id=id)
+    return render(request, "books_detail.html", {"books_list": book_object})
+

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Page books</title>
     <link rel="stylesheet" href="{% static 'styles/books.css' %}">
     <link rel="stylesheet" href="{% static 'styles/index.css' %}">
     <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}">
@@ -47,6 +47,10 @@
 
     </div>
 
+    <hr>
+    <h1>Список книг</h1>
+    <hr>
+
     <div class="todo_container">
     
         {% for books in books_list %}
@@ -55,13 +59,11 @@
             marked
         {% endif %}
         ">
+
+
             <h3 class=""> Заголовок: {{ books.title }} </h3> 
-            <h4 class=""> Подзаголовок: {{ books.subtitle }} </h4>
-            <h4 class=""> Описание: {{ books.description }} </h4>
-            <h4 class=""> Цена: {{ books.price }} </h4>
             <h4 class=""> Жанр: {{ books.genre }} </h4>
-            <h4 class=""> Год выпуска:{{ books.year }} </h4>
-            <h4 class=""> Дата создания: {{ books.date }} </h4>
+            <h4 class=""> Цена: {{ books.price }} </h4>
 
             {% if books.is_favorites %}
                 <a href="{% url 'unmark-book' books.id %}">
@@ -74,6 +76,10 @@
             {% endif %}
                 <a href="{% url 'delete-book' books.id %}">
                     <img src="{% static './icons/delete.png' %}" alt="" style="width: 25px; height: 25px;">
+                </a>
+
+                <a href="{% url 'book' books.id %}" style="font-size: 20px; font-style: italic;">
+                    Посмотреть подробнее
                 </a>
          </div>
 
