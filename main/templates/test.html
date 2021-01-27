@@ -55,13 +55,13 @@
                         {% else %}
                             <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/unmarked.png' %}" alt=""></a>
                         {% endif %}
-                        <a href="{% url 'delete-todo'  todo.id  %}"><img src="{% static './icons/delete.png' %}" alt=""></a>
+                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete.png' %}" alt=""></a>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
-
+       
     </section>
 
 </body>

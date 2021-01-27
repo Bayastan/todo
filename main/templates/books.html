@@ -48,8 +48,13 @@
     </div>
 
     <div class="todo_container">
-            {% for books in books_list %}
-            <div class="todo_item">
+    
+        {% for books in books_list %}
+        <div class="todo_item
+        {% if books.is_favorites %}
+            marked
+        {% endif %}
+        ">
             <h3 class=""> Заголовок: {{ books.title }} </h3> 
             <h4 class=""> Подзаголовок: {{ books.subtitle }} </h4>
             <h4 class=""> Описание: {{ books.description }} </h4>
@@ -57,12 +62,25 @@
             <h4 class=""> Жанр: {{ books.genre }} </h4>
             <h4 class=""> Год выпуска:{{ books.year }} </h4>
             <h4 class=""> Дата создания: {{ books.date }} </h4>
-            </div>
-            {% endfor %}
-        <script>
 
-           
-        </script>
+            {% if books.is_favorites %}
+                <a href="{% url 'unmark-book' books.id %}">
+                    <img src="{% static './icons/marked.png' %}" alt="" style="width: 25px; height: 25px;">
+                </a>
+            {% else %}
+                <a href="{% url 'mark-book' books.id %}">
+                    <img src="{% static './icons/unmarked.png' %}" alt="" style="width: 25px; height: 25px;">
+                </a>
+            {% endif %}
+                <a href="{% url 'delete-book' books.id %}">
+                    <img src="{% static './icons/delete.png' %}" alt="" style="width: 25px; height: 25px;">
+                </a>
+         </div>
+
+        {% endfor %}
+
+        
     </div>
+
 </body>
 </html>
