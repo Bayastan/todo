@@ -13,34 +13,30 @@
 
     <div class="save_form">
 
-        <form action="" method="POST">
+        <form action="{% url 'add-book' %}" method="POST">
             {% csrf_token %}
             <div class="div_input">
-                <input type="text" class="style_input" placeholder="Заголовок" name="">
+                <input type="text" class="style_input" placeholder="Заголовок" name="title">
             </div>
 
             <div class="div_input">
-                <input type="text" class="style_input" placeholder="Подзаголовок" name="">
+                <input type="text" class="style_input" placeholder="Подзаголовок" name="subtitle">
             </div>
 
             <div class="div_input">
-                <input type="text" class="style_input" placeholder="Описание" name="">
+                <input type="text" class="style_input" placeholder="Описание" name="description">
             </div>
 
             <div class="div_input">
-                <input type="text" class="style_input" placeholder="Цена" name="">
+                <input type="text" class="style_input" placeholder="Цена" name="price">
             </div>
 
             <div class="div_input">
-                <input type="text" class="style_input" placeholder="Жанр" name="">
+                <input type="text" class="style_input" placeholder="Жанр" name="genre">
             </div>
 
             <div class="div_input">
-                <input type="text" class="style_input" placeholder="Год выпуска" name="">
-            </div>
-
-            <div class="div_input">
-                <input type="text" class="style_input" placeholder="Дата создания" name="">
+                <input type="text" class="style_input" placeholder="Год выпуска" name="year">
             </div>
 
             <div class="div_input">
@@ -62,7 +58,11 @@
             <h4 class=""> Год выпуска:{{ books.year }} </h4>
             <h4 class=""> Дата создания: {{ books.date }} </h4>
             </div>
-        {% endfor %}
+            {% endfor %}
+        <script>
+
+           
+        </script>
     </div>
 </body>
 </html>

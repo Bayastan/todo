@@ -42,3 +42,17 @@ def unmark_todo(request, id):
     todo.is_favorite = False
     todo.save()
     return redirect(test)
+
+
+def add_book(request):
+    form = request.POST 
+    book=Books(
+    title=form["title"],
+    subtitle=form["subtitle"],
+    description=form["description"],
+    genre=form["genre"],
+    price=form["price"],
+    year=form["year"],
+    )
+    book.save()
+    return redirect(books)
