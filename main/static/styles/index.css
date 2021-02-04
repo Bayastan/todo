@@ -66,15 +66,18 @@ section {
     margin-bottom: 20px;
 }
 
-
-.todo_item.done {
-    border: 1px solid #808080;
-    border-radius: 5px;
-    width: 24%;
-    padding: 10px 15px;
-    background-color: #808080;
-    margin-bottom: 20px;
+.todo_item.marked.done {
+    text-decoration: line-through !important;
 }
+
+.todo_item.done h4  {
+    text-decoration: line-through !important;
+}
+
+.todo_item.done p {
+    text-decoration: line-through !important;
+}
+
 
 .todo_item_header {
     font-size: 18px;
@@ -85,6 +88,10 @@ section {
     display: flex;
     align-items: center;
     min-height: 35px;
+}
+
+.todo_item_header h4 a{
+    text-decoration: none;
 }
 
 .todo_item_footer {

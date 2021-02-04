@@ -78,3 +78,8 @@ def book(request, id):
     book_object = Books.objects.filter(id=id)
     return render(request, "books_detail.html", {"books_list": book_object})
 
+def close_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_closed = not todo.is_closed
+    todo.save()
+    return redirect(test)
