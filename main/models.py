@@ -15,3 +15,4 @@ class Books(models.Model):
     year = models.CharField(max_length=100, default=0)
     date = models.DateTimeField(auto_now_add=True)
     is_favorites = models.BooleanField(default=False)
+    is_closed = models.BooleanField(default=False)

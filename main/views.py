@@ -83,3 +83,9 @@ def close_todo(request, id):
     todo.is_closed = not todo.is_closed
     todo.save()
     return redirect(test)
+
+def close_book(request, id):
+    book = Books.objects.get(id=id)
+    book.is_closed = not book.is_closed
+    book.save()
+    return redirect(books)

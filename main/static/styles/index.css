@@ -116,3 +116,7 @@ section {
     cursor: pointer;
 }
 
+
+.todo_item.done h4 a{
+    text-decoration: none;
+}

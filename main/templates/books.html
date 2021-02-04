@@ -57,11 +57,17 @@
         <div class="todo_item
         {% if books.is_favorites %}
             marked
+            {% elif books.is_closed %}
+            done
         {% endif %}
         ">
+        
+
+            <h3 class=""> 
 
 
-            <h3 class=""> Заголовок: {{ books.title }} </h3> 
+                Заголовок: {{ books.title }} </h3> 
+
             <h4 class=""> Жанр: {{ books.genre }} </h4>
             <h4 class=""> Цена: {{ books.price }} </h4>
 
@@ -80,7 +86,17 @@
 
                 <a href="{% url 'book' books.id %}" style="font-size: 20px; font-style: italic;">
                     Посмотреть подробнее
-                </a>
+                </a><br><br>
+                <label class="checkbox_container">
+                    <input type="checkbox" 
+                    {%  if books.is_closed %}
+                    checked
+                    {% endif %}
+                    >
+                    <span class="checkmark"></span>
+                </label>
+                 <h4 class="under"><a href="{% url 'close-book' books.id %}"> Статус выполнения задачи </a> </h4>               
+
          </div>
 
         {% endfor %}
